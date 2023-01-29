@@ -2,7 +2,10 @@ package chper02_puringCoding.puringCoding_exercise;
 
 public class StrToInt {
     public static void main(String[] args) {
-        String test = "-21474836482";
+        String test = "2147483648";
+        // String test = " ";
+        // String test = "42";
+        // String test = "-21474836482";
         // String test = "   "; //return 0
         // String test = "   -4m2"; //return -42
         // String test = "4193zbc"; //return 4193
@@ -12,7 +15,9 @@ public class StrToInt {
         // String test = ""; //empty string, return 0
         // String test = "   "; //white space only,return 0
 
-        System.out.println(strToInt(test));
+        // System.out.println(strToInt(test));
+        System.out.println(myAtoi(test));
+
     }
     // 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。
 
@@ -69,39 +74,60 @@ public class StrToInt {
         }
         return result;
     }
+
+
+    public static int myAtoi(String str) {
+        if (str.isEmpty() || str.length() == 0) return 0; // handle empty case
+        
+        int len = str.length();
+        int i = 0;
+        while (i< len && str.charAt(i) == ' '){
+            i++;
+        }
+
+        int sign = 1;
+        if (i<len && str.charAt(i) == '-'){
+            sign = -1;
+            i++;
+        } else if (i<len && str.charAt(i) == '+') {
+            i++;
+        }
+
+        long ans = 0;
+        while (i<len && str.charAt(i) >= '0' && str.charAt(i) <= '9'){
+            ans = ans*10 + (str.charAt(i) -'0');
+            if (ans > Integer.MAX_VALUE){
+                return sign == -1 ? Integer.MIN_VALUE:Integer.MAX_VALUE;
+            }
+            i++;
+        }
+        return (int)ans *sign;
+        // if (str.isEmpty() || str.length() == 0) return 0; // handle empty case
+
+        // int i = 0;
+        // int len = str.length();
+        // while (i < len && str.charAt(i) == ' '){
+        //     i++;
+        // }
+
+        // int sign = 1;
+        // if (str.charAt(i) == '-'){
+        //     sign = -1;
+        //     i++;
+        // }else if (str.charAt(i) == '+'){
+        //     i++;
+        // }
+
+        // long ans = 0;
+        // while(i<len && str.charAt(i)>= '0' && str.charAt(i) <= '9'){
+        //     if(ans > Integer.MAX_VALUE){
+        //         return sign == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        //     }
+        //     ans = ans * 10 + (str.charAt(i) - '0');
+        //     i++;
+        // }
+
+        // return sign * (int)ans;
+    }
+
 }
-
-
-// class Solution {
-//     public int myAtoi(String str) {
-//         if(str==null||str.length()==0){
-//             return 0;
-//         }
-
-//         int sign=1;
-//         int i=0;
-//         int len=str.length();
-//         while(i<len&&str.charAt(i)==' '){
-//             i++;
-//         }
-//         if(i<len&&str.charAt(i)=='-'){
-//             sign=-1;
-//             i++;
-//         }else if(i<len&&str.charAt(i)=='+'){
-//             i++;
-//         }
-
-//         long ans=0;
-//         for(;i<len;++i){
-//             if(str.charAt(i)<'0'||str.charAt(i)>'9'){
-//                 return sign*(int)ans;
-//             }
-//             ans=ans*10+(str.charAt(i)-'0');
-//             if(ans>Integer.MAX_VALUE){
-//                 return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;
-//             }
-//         }
-
-//         return sign*(int)ans;
-//     }
-// }

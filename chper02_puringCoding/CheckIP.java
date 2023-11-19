@@ -1,5 +1,6 @@
 package chper02_puringCoding;
 
+
 public class CheckIP {
     public static void main(String[] args) {
         // 1. "123.9.2.0" legal
@@ -25,8 +26,11 @@ public class CheckIP {
         // System.out.println(isValidate(ip7));
 
         // "" or null 
-        String ip8 = null;
-        System.out.println(isValidate(ip8));
+        // String ip8 = null;
+        // System.out.println(isValidate(ip8));
+
+        String ip9 = "a1.b2.c3.d4";
+        System.out.println(isValidate(ip9));
 
     }
     /* Problem:

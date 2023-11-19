@@ -3,7 +3,7 @@ package chper02_puringCoding.puringCoding_exercise;
 public class RemoveDuplicated {
     public static void main(String[] args) {
         // 输入：
-        int[] nums = new int[] {1,1,2};
+        int[] nums = new int[] {1,1,2,2,2,3};
         // 输出：2, nums = [1,2,_] 
         System.out.println(removeDuplicates(nums));
     }

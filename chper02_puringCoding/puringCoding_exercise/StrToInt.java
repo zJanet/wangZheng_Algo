@@ -2,14 +2,14 @@ package chper02_puringCoding.puringCoding_exercise;
 
 public class StrToInt {
     public static void main(String[] args) {
-        String test = "2147483648";
+        // String test = "2147483648";
         // String test = " ";
-        // String test = "42";
+        String test = "-+2";
         // String test = "-21474836482";
         // String test = "   "; //return 0
-        // String test = "   -4m2"; //return -42
+        // String test = "   -4m2"; //return -4
         // String test = "4193zbc"; //return 4193
-        // String test = "abc987"; //return 0
+        // String test = "    abc987"; //return 0
         // String test = "-99999999999"; //return Integer.MIN_VALUE
         // String test = "99999999999"; //return Integer.MAX_VALUE
         // String test = ""; //empty string, return 0
@@ -102,32 +102,5 @@ public class StrToInt {
             i++;
         }
         return (int)ans *sign;
-        // if (str.isEmpty() || str.length() == 0) return 0; // handle empty case
-
-        // int i = 0;
-        // int len = str.length();
-        // while (i < len && str.charAt(i) == ' '){
-        //     i++;
-        // }
-
-        // int sign = 1;
-        // if (str.charAt(i) == '-'){
-        //     sign = -1;
-        //     i++;
-        // }else if (str.charAt(i) == '+'){
-        //     i++;
-        // }
-
-        // long ans = 0;
-        // while(i<len && str.charAt(i)>= '0' && str.charAt(i) <= '9'){
-        //     if(ans > Integer.MAX_VALUE){
-        //         return sign == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-        //     }
-        //     ans = ans * 10 + (str.charAt(i) - '0');
-        //     i++;
-        // }
-
-        // return sign * (int)ans;
     }
-
 }
